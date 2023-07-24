@@ -53,7 +53,7 @@
               owner = "pythoneda-realm-rydnr";
               repo = "events";
               rev = version;
-              sha256 = "sha256-0aA3x+Q594VSJco7hJyMbjag2ErIU87Agm/Nnmt8MqU=";
+              sha256 = "sha256-PprMHvDm3/WxdmUPUo0d1zgH+sCwOzmlT/9U0S0Xh8M=";
             };
 
             format = "pyproject";
