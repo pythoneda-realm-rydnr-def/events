@@ -17,7 +17,7 @@
         pkgs = import nixos { inherit system; };
         description = "Events for pythoneda-realm-rydnr";
         license = pkgs.lib.licenses.gpl3;
-        homepage = "https://github.com/pythoneda-realm-rydnr/realm";
+        homepage = "https://github.com/pythoneda-realm-rydnr/events";
         maintainers = [ "rydnr <github@acm-sl.org>" ];
         nixpkgsRelease = "nixos-23.05";
         shared = import ./nix/shared.nix;
@@ -74,6 +74,13 @@
             '';
 
             postInstall = ''
+              pushd /build/$sourceRoot
+              for f in $(find . -name '__init__.py'); do
+                if [[ ! -e $out/lib/python${pythonMajorMinorVersion}/site-packages/$f ]]; then
+                  cp $f $out/lib/python${pythonMajorMinorVersion}/site-packages/$f;
+                fi
+              done
+              popd
               mkdir $out/dist
               cp dist/${wheelName} $out/dist
               jq ".url = \"$out/dist/${wheelName}\"" $out/lib/python${pythonMajorMinorVersion}/site-packages/${pnameWithUnderscores}-${version}.dist-info/direct_url.json > temp.json && mv temp.json $out/lib/python${pythonMajorMinorVersion}/site-packages/${pnameWithUnderscores}-${version}.dist-info/direct_url.json
