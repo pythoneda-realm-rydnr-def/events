@@ -41,8 +41,8 @@
       let
         org = "pythoneda-realm-rydnr";
         repo = "events";
-        version = "0.0.1a2";
-        sha256 = "sha256-yXoi+8ml1MRG2u/EfV+npftYwEy/PqNMmPUJ4mPRFfA=";
+        version = "0.0.1a4";
+        sha256 = "sha256-Sm34QWHJixpPIyEcksCjQpsSBhhwDY18aPlge/d1FUI=";
         pname = "${org}-${repo}";
         pkgs = import nixos { inherit system; };
         description = "Events for pythoneda-realm-rydnr/realm";
