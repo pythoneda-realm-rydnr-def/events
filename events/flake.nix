@@ -41,7 +41,7 @@
       let
         org = "pythoneda-realm-rydnr";
         repo = "events";
-        version = "0.0.1a7";
+        version = "0.0.2";
         sha256 = "sha256-nk67pq3Eg9YEI9Sm9ytWUlWqnmfRIJXBu5cQVMfFJ74=";
         pname = "${org}-${repo}";
         pythonpackage = "pythoneda.realm.rydnr.events";
