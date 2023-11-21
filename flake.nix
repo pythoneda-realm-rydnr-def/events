@@ -1,8 +1,8 @@
-# events/flake.nix
+# flake.nix
 #
 # This file packages pythoneda-realm-rydnr/events as a Nix flake.
 #
-# Copyright (C) 2023-today rydnr's pythoneda-realm-rydnr/events-artifact
+# Copyright (C) 2023-today rydnr's pythoneda-realm-rydnr-def/events
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,20 +19,19 @@
 {
   description = "Events for pythoneda-realm-rydnr/realm";
   inputs = rec {
-    nixos.url = "github:NixOS/nixpkgs/nixos-23.05";
     flake-utils.url = "github:numtide/flake-utils/v1.0.0";
+    nixos.url = "github:NixOS/nixpkgs/nixos-23.05";
     pythoneda-shared-pythoneda-banner = {
-      url = "github:pythoneda-shared-pythoneda/banner/0.0.1a17";
-      inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.nixos.follows = "nixos";
+      url = "github:pythoneda-shared-pythoneda-def/banner/0.0.2";
     };
     pythoneda-shared-pythoneda-domain = {
-      url =
-        "github:pythoneda-shared-pythoneda/domain-artifact/0.0.1a43?dir=domain";
-      inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
+      inputs.nixos.follows = "nixos";
       inputs.pythoneda-shared-pythoneda-banner.follows =
         "pythoneda-shared-pythoneda-banner";
+      url = "github:pythoneda-shared-pythoneda-def/domain/0.0.2";
     };
   };
   outputs = inputs:
@@ -128,15 +127,9 @@
           pythoneda-realm-rydnr-events-default =
             pythoneda-realm-rydnr-events-python311;
           pythoneda-realm-rydnr-events-python38 = shared.devShell-for {
-            package = packages.pythoneda-realm-rydnr-events-python38;
-            python = pkgs.python38;
-            pythoneda-shared-pythoneda-banner =
-              pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python38;
-            pythoneda-shared-pythoneda-domain =
-              pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python38;
-            inherit archRole layer nixpkgsRelease org pkgs repo space;
-          };
-          pythoneda-realm-rydnr-events-raw-python38 = shared.raw-devShell-for {
+            banner = "${
+                pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python38
+              }/bin/banner.sh";
             package = packages.pythoneda-realm-rydnr-events-python38;
             python = pkgs.python38;
             pythoneda-shared-pythoneda-banner =
@@ -146,15 +139,9 @@
             inherit archRole layer nixpkgsRelease org pkgs repo space;
           };
           pythoneda-realm-rydnr-events-python39 = shared.devShell-for {
-            package = packages.pythoneda-realm-rydnr-events-python39;
-            python = pkgs.python39;
-            pythoneda-shared-pythoneda-banner =
-              pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python39;
-            pythoneda-shared-pythoneda-domain =
-              pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python39;
-            inherit archRole layer nixpkgsRelease org pkgs repo space;
-          };
-          pythoneda-realm-rydnr-events-raw-python39 = shared.raw-devShell-for {
+            banner = "${
+                pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python39
+              }/bin/banner.sh";
             package = packages.pythoneda-realm-rydnr-events-python39;
             python = pkgs.python39;
             pythoneda-shared-pythoneda-banner =
@@ -164,15 +151,9 @@
             inherit archRole layer nixpkgsRelease org pkgs repo space;
           };
           pythoneda-realm-rydnr-events-python310 = shared.devShell-for {
-            package = packages.pythoneda-realm-rydnr-events-python310;
-            python = pkgs.python310;
-            pythoneda-shared-pythoneda-banner =
-              pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python310;
-            pythoneda-shared-pythoneda-domain =
-              pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python310;
-            inherit archRole layer nixpkgsRelease org pkgs repo space;
-          };
-          pythoneda-realm-rydnr-events-raw-python310 = shared.raw-devShell-for {
+            banner = "${
+                pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python310
+              }/bin/banner.sh";
             package = packages.pythoneda-realm-rydnr-events-python310;
             python = pkgs.python310;
             pythoneda-shared-pythoneda-banner =
@@ -182,15 +163,9 @@
             inherit archRole layer nixpkgsRelease org pkgs repo space;
           };
           pythoneda-realm-rydnr-events-python311 = shared.devShell-for {
-            package = packages.pythoneda-realm-rydnr-events-python311;
-            python = pkgs.python311;
-            pythoneda-shared-pythoneda-banner =
-              pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python311;
-            pythoneda-shared-pythoneda-domain =
-              pythoneda-shared-pythoneda-domain.packages.${system}.pythoneda-shared-pythoneda-domain-python311;
-            inherit archRole layer nixpkgsRelease org pkgs repo space;
-          };
-          pythoneda-realm-rydnr-events-raw-python311 = shared.raw-devShell-for {
+            banner = "${
+                pythoneda-shared-pythoneda-banner.packages.${system}.pythoneda-shared-pythoneda-banner-python311
+              }/bin/banner.sh";
             package = packages.pythoneda-realm-rydnr-events-python311;
             python = pkgs.python311;
             pythoneda-shared-pythoneda-banner =

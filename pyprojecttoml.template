@@ -1,8 +1,8 @@
-# events/pyprojecttoml.template
+# pyprojecttoml.template
 #
 # This file is the template for pythoneda-realm-rydnr/events's pyproject.toml
 #
-# Copyright (C) 2023-today rydnr's pythoneda-realm-rydnr/events-artifact
+# Copyright (C) 2023-today rydnr's pythoneda-realm-rydnr-def/events
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
