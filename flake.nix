@@ -40,8 +40,8 @@
       let
         org = "pythoneda-realm-rydnr";
         repo = "events";
-        version = "0.0.2";
-        sha256 = "sha256-nk67pq3Eg9YEI9Sm9ytWUlWqnmfRIJXBu5cQVMfFJ74=";
+        version = "0.0.3";
+        sha256 = "1cmnpfahavxjcmpdcdyss5g1wrqp9y6avz780sc15c097r0lk9bg";
         pname = "${org}-${repo}";
         pythonpackage = "pythoneda.realm.rydnr.events";
         pkgs = import nixos { inherit system; };
