@@ -24,14 +24,14 @@
     pythoneda-shared-pythonlang-banner = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:pythoneda-shared-pythonlang-def/banner/0.0.72";
+      url = "github:pythoneda-shared-pythonlang-def/banner/0.0.74";
     };
     pythoneda-shared-pythonlang-domain = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.pythoneda-shared-pythonlang-banner.follows =
         "pythoneda-shared-pythonlang-banner";
-      url = "github:pythoneda-shared-pythonlang-def/domain/0.0.96";
+      url = "github:pythoneda-shared-pythonlang-def/domain/0.0.101";
     };
   };
   outputs = inputs:
@@ -44,6 +44,7 @@
         sha256 = "03gsiaq97i0vxqryr2hg64a9ar53fp1123m6r1png32kjsxhazfq";
         pname = "${org}-${repo}";
         pythonpackage = "pythoneda.realm.rydnr.events";
+        package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;
         pkgs = import nixpkgs { inherit system; };
         description = "Events for pythoneda-realm-rydnr/realm";
         license = pkgs.lib.licenses.gpl3;
@@ -77,7 +78,6 @@
               desc = description;
               inherit homepage pname pythonMajorMinorVersion package
                 version;
-              package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;
               pythonedaSharedPythonlangDomainVersion =
                 pythoneda-shared-pythonlang-domain.version;
               src = pyprojectTomlTemplate;
